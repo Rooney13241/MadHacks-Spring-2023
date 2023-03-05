@@ -38,3 +38,7 @@ def home():
 def view(filename):
     filepath = os.path.join(html_dir, filename)
     return send_file(filepath)
+
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5500)

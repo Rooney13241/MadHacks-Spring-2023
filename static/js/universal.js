@@ -20,12 +20,15 @@ function addMarkers(coordinates){
               color = 'black';
         }
         console.log(color);
+
+        var length = ((coordinates[ip][2].length == 1) ? 0 : coordinates[ip][2].length);
         L.marker(coordinates[ip], {icon: L.icon({
     iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-'+color+'.png',
     iconSize: [25, 41], iconAnchor: [12, 41]
     })})
     .addTo(map)
-    .bindPopup(ip);
+    .bindPopup(ip + 'highest risk score: ' + coordinates[ip][2][0] +', Number of vulnerabilities: ' +
+    length);
 //' (' + coordinates[ip][2] + ' occurrences)'
     }
 }

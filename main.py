@@ -32,7 +32,6 @@ def home():
         #     print(vuln[ip_address])
         if len(vuln[ip_address]) == 0:
             vuln[ip_address] = [0]
-
         if not coordinates:
             coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
         else:

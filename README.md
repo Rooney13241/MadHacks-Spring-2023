@@ -14,11 +14,11 @@ Information is then saved as xml and then turned into an HTML document for the u
 ## TO RUN THE PROGRAM
 
 Please install dependencies: ```pip install -r "requirements.txt"```
-run in the console: ```python3 main.py```
+run: ```python3 main.py``` in console
 
-after this navigate to localhost:5500 or http://127.0.0.1:5500, etc(available addresses will display in the command line
+Navigate to localhost:5500 or http://127.0.0.1:5500, etc(available addresses will display in the command line
 
-enter your target IP/address in the scan target field and wait for the script to fully execute, and then feel free to open the report or zoom in on the map  :)
+Enter your target IP/address in the scan target field and wait for the script to fully execute, and then feel free to open the report or zoom in on the map  :)
 
 
 

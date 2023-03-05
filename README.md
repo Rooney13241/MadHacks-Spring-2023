@@ -2,7 +2,7 @@
 
 24 Hour Hackathon at UW - Madison
 
-Worked on solo project, decided to follow TDS's Sponsor challenge to work with networking, something I have never touched before. 
+Worked on solo project, Following TDS's Sponsor challenge to work with networking, something I have never touched before. 
 
 Created a flask web app to run on a localhost, utilizes a python script that works with nmap to scan network ports to check for various conditions.
 

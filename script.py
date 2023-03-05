@@ -35,7 +35,7 @@ def scan(target):
 
 def locationid():
 
-    addr_list = set()
+    addr_list = []
 
     with open('output.xml', 'r') as f:
         data = f.read()
@@ -43,9 +43,10 @@ def locationid():
     bs_data = BeautifulSoup(data, 'xml')
     b_address = bs_data.find_all('address')
     for val in b_address:
-        addr_list.add(val.get('addr'))
-
+        addr_list.append(val.get('addr'))
+    addr_list = set(addr_list)
     return addr_list
 
 if __name__ == '__main__':
+    scan('scanme.nmap.org')
     locationid()

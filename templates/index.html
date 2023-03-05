@@ -2,29 +2,60 @@
 <html>
 <head>
     <title>HTML Files</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/universal.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <style>
+        #grid {
+            display: flex;
+            }
+        #map {
+            height: 50rem;
+            width: 70rem;
+            margin-left: auto;
+        }
+        #header {
+            height: 50vh;
+            width: 20rem;
+        }
+    </style>
 </head>
 <body>
-<h1>Scan Target</h1>
-    <form method="post">
-                <input type="text" name="user_input">
-                <input type="submit" value="Submit">
-    </form>
-    <h2>HTML Files</h2>
+<div id="grid">
+    <div id="header">
+        <h1>Scan Target</h1>
+        <form method="post">
+            <input type="text" name="user_input">
+            <input type="submit" value="Submit">
+        </form>
 
-    <table>
-        <tr>
-            <th>Filename</th>
-            <th>View</th>
-        </tr>
-        {% for file in html_files %}
-        <tr>
-            <td>{{ file }}</td>
-            <td><a href="{{ url_for('view', filename=file) }}">View</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+        <h2>HTML Files</h2>
 
+        <table>
+            <tr>
+                <th>Filename</th>
+                <th>View</th>
+            </tr>
+            {% for file in html_files %}
+            <tr>
+                <td>{{ file }}</td>
+                <td><a href="{{ url_for('view', filename=file) }}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
+    <div id="map">
+    <script src="{{ url_for('static', filename='js/universal.js') }}">
+    </script>
+    <script>
+        var coordinates = {{ coordinates|tojson }};
+        addMarkers(coordinates);
+    </script>
+    </div>
+    </div>
 </body>
 </html>
 

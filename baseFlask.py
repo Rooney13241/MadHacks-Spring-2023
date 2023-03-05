@@ -26,7 +26,6 @@ def home():
 
     html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
     html_files.sort(reverse=True)
-
     # Save the output to a file
     # Return the output file to the user
     return render_template('index.html', html_files=html_files, coordinates=coordinates)

@@ -18,6 +18,7 @@ def home():
 
     addr_list = script.locationid()
     coordinates = {}
+    vuln = script.vulnercount()
     for ip_address in addr_list:
         response = DbIpCity.get(ip_address, api_key=config.api_key)
         latitude = response.latitude
@@ -25,8 +26,28 @@ def home():
         # if (latitude,longitude) not in count:
         #     count[(latitude,longitude)] = 0
         # count[(latitude,longitude)] += 1
-        # coordinates[ip_address] = (latitude, longitude, count[(latitude,longitude)])
-        coordinates[ip_address] = (latitude, longitude)
+        # if not coordinates:
+        #     coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
+        # elif latitude == coordinates.get(ip_address)[0] and longitude == coordinates.get(ip_address)[1] and len(vuln[ip_address]) > 0:
+        #     print(vuln[ip_address])
+        if len(vuln[ip_address]) == 0:
+            vuln[ip_address] = [0]
+
+        if not coordinates:
+            coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
+        else:
+            for key, value in dict(coordinates).items():
+                if latitude == value[0] and longitude == value[1] and len(vuln[ip_address]) > 1:
+                    del coordinates[key]
+                    coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
+                elif latitude == value[0] and longitude == value[1] and len(vuln[ip_address]) == 0 and len(value[2]) == 0:
+                    del coordinates[key]
+                    coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
+                else:
+                    coordinates[ip_address] = (latitude, longitude, vuln[ip_address])
+
+        # coordinates[ip_address] = (latitude, longitude)
+    print(coordinates)
     html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
     html_files.sort(reverse=True)
     # Save the output to a file

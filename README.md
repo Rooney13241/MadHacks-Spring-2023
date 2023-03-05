@@ -13,6 +13,12 @@ Information is then saved as xml and then turned into an HTML document for the u
 
 ## TO RUN THE PROGRAM
 
+If there is not a config.py file, please create one:
+
+if you would like to use the free key just have one line in the file
+```api_key = "free"```
+if you plan to purchase a key, please replace free with your key
+
 Please install dependencies: ```pip install -r "requirements.txt"```
 run: ```python3 main.py``` in console
 

@@ -11,9 +11,9 @@ This is also done with a vulnerability scan based off of the nmap NSE scrip vuls
 Information is then saved as xml and then turned into an HTML document for the user to read on the website. In addition, the website will display a map of the IP addresses found.
 (Further implementation wanted if time, like adding vulnerability color etc)
 
-##TO RUN THE PROGRAM
+## TO RUN THE PROGRAM
 
-```run in the console: python3 main.py```
+run in the console: ```python3 main.py```
 
 after this navigate to localhost:5500 or http://127.0.0.1:5500, etc(available addresses will display in the command line
 

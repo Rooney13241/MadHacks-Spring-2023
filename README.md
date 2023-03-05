@@ -20,7 +20,8 @@ if you would like to use the free key just have one line in the file
 if you plan to purchase a key, please replace free with your key
 
 Please install dependencies: ```pip install -r "requirements.txt"```
-run: ```python3 main.py``` in console
+
+After all the dependencies have installed you can run the program with: ```python3 main.py``` in console
 
 Navigate to localhost:5500 or http://127.0.0.1:5500, etc(available addresses will display in the command line
 
